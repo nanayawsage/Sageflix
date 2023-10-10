@@ -1,0 +1,32 @@
+.mybar{
+    background-color: black;
+    height: 600px;
+    width: 10rem;
+    margin-left: 2rem ;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px ;
+    flex-direction:column;
+    gap: 20px;
+    align-items: center;
+
+.myShapes{
+    border: 2px #fff solid;
+    height: 80px;
+    width: 80px;
+}
+    .myCircle{
+        background-color: #fff;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    .mySquare{
+        background-color: red;
+
+    }
+    .myProfileCircle{
+        background-color: green;
+        border-radius: 50%;
+
+    }
+}
