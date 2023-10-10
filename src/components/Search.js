@@ -1,6 +1,7 @@
 import Hero from "./Hero";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import "../assets/css/Search.scss"
 // import FooterCopy from "./FooterCopy";
 
 // My API key= 364477e37eaff7fbb22eaf9619ae7d93
