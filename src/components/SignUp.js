@@ -1,8 +1,6 @@
-import Footer from "./Footer";
 import { useNavigate} from "react-router-dom";
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import FooterCopy from "./FooterCopy";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +27,7 @@ const SignUp = () => {
   return (
     <>
       <div className="constrain container col-md-4 my-5">
-        <h1 className="home-text">Create User account </h1>
+        <h1 className="">Create User account </h1>
         <form onSubmit={signedUp}>
           <div className="row my-5">
             <div className="col-sm-10">
@@ -54,7 +52,7 @@ const SignUp = () => {
             </div>
           </div>
           <fieldset className="row mb-3"></fieldset>
-          {error && <p className="text-danger">{error}</p>}{" "}
+          {error && <p className="text-danger">{error}</p>}
           {/* Display error message */}
           <div className="row mb-3">
             <div className="col-sm-10 offset-sm-2">
@@ -75,7 +73,6 @@ const SignUp = () => {
         </form>
       </div>
 
-      <FooterCopy />
     </>
   );
 };

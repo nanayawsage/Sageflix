@@ -1,7 +1,6 @@
 import Hero from "./Hero";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Footer from "./Footer";
 // import FooterCopy from "./FooterCopy";
 
 // https://api.themoviedb.org/3/movie/343611?api_key=364477e37eaff7fbb22eaf9619ae7d93
@@ -49,7 +48,6 @@ const MovieView = () => {
 
               </div>
             </div>
-            <Footer />
           </div>
          
         </>

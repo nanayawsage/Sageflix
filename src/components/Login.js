@@ -1,7 +1,6 @@
 
 
 import { useNavigate, Link } from "react-router-dom";
-import Footer from './Footer';
 
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -75,7 +74,6 @@ const Login = () => {
         </form>
     
       </div>
-      <Footer />
    
     </>
   );

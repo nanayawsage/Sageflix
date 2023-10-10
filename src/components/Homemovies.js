@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import { useParams } from "react-router-dom";
-import Footer from './Footer';
 import Hero from './Hero';
 // import FooterCopy from './FooterCopy';
 
@@ -49,7 +48,6 @@ const Homemovies = () => {
       ))}
        </div>
 
-     <Footer/>
     </div>
     </>
   );

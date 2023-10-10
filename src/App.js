@@ -11,7 +11,7 @@ import MovieView from "./components/Movies";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Contact from "./components/Contact";
-
+import SideMenu from "./components/SideMenu";
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,6 +22,7 @@ import Homemovies from "./components/Homemovies";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
+import Footer from "./components/Footer";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA5QtrkNWakHpBKHNJ2w-0QAEYWtZUO3JQ",
@@ -42,10 +43,6 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState("");
 
- 
-
-
-
   useEffect(() => {
     if (searchText) {
       fetch(
@@ -63,8 +60,8 @@ function App() {
 
    
     <div>
+      <SideMenu />
       <Navbar searchText={searchText} setSearchText={setSearchText} />
-
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/Movies/:id" element={<MovieView />} />
@@ -84,7 +81,7 @@ function App() {
         />
         
       </Routes>
-
+<Footer />
     </div>
   );
 }

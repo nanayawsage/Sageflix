@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
-import AuthDetails from "./AuthDetails";
 import logo from "../logo.png";
+import{BsSearch} from "react-icons/bs"
 
 const Navbar = ({ searchText, setSearchText }) => {
   const Navigate = useNavigate();
@@ -12,30 +12,32 @@ const Navbar = ({ searchText, setSearchText }) => {
 
   return (
     <>
-      <AuthDetails />
-      <nav className=" nav-text container navbar navbar-expand-lg  bg-light">
-        <div className="container-fluid">
+      <nav className=" container sticky-top navbar-dark">
+        <div className="container d-flex">
           <Link className="navbar-brand" to="/">
           <img src={logo} className="logo" alt="logo" />
           </Link>
           
-          <form className="d-flex">
+          <form className="">
+            <span className="search-icon">
+            <BsSearch />
+            </span>
             <input
-              className="form-control me-2"
+              className=" search me-2"
               type="search"
-              placeholder="Search Movies"
+              placeholder="Search for Movies."
               aria-label="Search"
               value={searchText}
               onChange={updateSearchText}
             />
           </form>
 
-          <span className="signin-btn">
+          {/* <span className="signin-btn">
             <Link to="/Login">
               <button className="btn btn-primary my-3">Sign In</button>
             </Link>
-          </span>
-          <button
+          </span> */}
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -45,8 +47,8 @@ const Navbar = ({ searchText, setSearchText }) => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          </button> */}
+          {/* <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
@@ -100,7 +102,7 @@ const Navbar = ({ searchText, setSearchText }) => {
                 </ul>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </nav>
     </>

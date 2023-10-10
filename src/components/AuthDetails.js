@@ -1,5 +1,7 @@
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState} from "react";
+import {FaRegUser} from "react-icons/fa"
+
 
 const AuthDetails = () => {
   
@@ -46,7 +48,9 @@ const AuthDetails = () => {
         </div>
       ) :  (
         
-        <p>Not Signed In</p>
+        <div className="">
+        <FaRegUser />
+        </div>
         
       )}
       

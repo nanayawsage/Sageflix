@@ -3,31 +3,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <footer className="footer  flex-row container">
-        <div className=" flex-row py-2">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className=" my-2 nav-item">
-              <Link className=" active" aria-current="page" to="/">
-                Home
-              </Link>
-            </li>
-            <li className=" my-2 nav-item">
-              <Link className=" active" aria-current="page" to="/About">
-                About Us
-              </Link>
-            </li>
-            <li className="nav-item my-2">
-              <Link className=" active" aria-current="page" to="/Contact">
-                Contact Us
-              </Link>
-            </li> 
-          </ul>
-          </div>
-
+      <footer className="footer">
   
 
-  
-          <Link to="https://facebook.com/nanayawsage" className="me-4">
+
+          <Link to="https://facebook.com/nanayawsage" className="me-4 my-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"

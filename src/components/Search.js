@@ -21,7 +21,7 @@ const MovieCard = ({ movie }) => {
         />
        <div className="card-body">
           <h5 className="card-title">{movie.original_title}</h5>
-          <Link to={detailUrl} class="btn btn-primary">
+          <Link to={detailUrl} class="btn btn-outline-success">
             Show Details
           </Link>
       </div>
