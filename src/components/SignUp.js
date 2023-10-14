@@ -1,22 +1,22 @@
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import Swal from "sweetalert2";
+import { MdCheckBox } from "react-icons/md";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-
   const history = useNavigate();
   const signedUp = (e) => {
-   
-
     e.preventDefault();
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        Swal.fire("Account created successfully!", "success");
         history("/Homemovies");
       })
       .catch((error) => {
@@ -26,53 +26,60 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="constrain container col-md-4 my-5">
-        <h1 className="">Create User account </h1>
-        <form onSubmit={signedUp}>
-          <div className="row my-5">
-            <div className="col-sm-10">
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="form-control"
-              />
-            </div>
-          </div>
-          <div className="row mb-3">
-            <div className="col-sm-10">
-              <input
-                placeholder="Password"
-                type="password"
-                className="form-control"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </div>
-          <fieldset className="row mb-3"></fieldset>
-          {error && <p className="text-danger">{error}</p>}
-          {/* Display error message */}
-          <div className="row mb-3">
-            <div className="col-sm-10 offset-sm-2">
-              <div className="form-check">
-                <div className="col-12">
-                  <span className="home-text col-12">
+      <div className="container">
+        <div className="row justify-content-center ">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-header text-center">
+                <h4>Register</h4>
+              </div>
+              <div className="card-body">
+                <form onSubmit={signedUp}>
+                  <div className="form-group mb-3">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group mb-3">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <fieldset className="row mb-3"></fieldset>
+                  {error && <p className="text-danger">{error}</p>}
+                  <div className="d-flex">
+                    <MdCheckBox />
+                    <p className="me-3">
+                      I accept terms and conditions on SageFlix
+                    </p>
+                  </div>
+                  <div className="form-group text-center mb-3">
                     <button
-                      className="btn signup-text btn-success"
                       type="submit"
+                      className="btn btn-primary submit-btn "
                     >
-                      Submit
+                      Create an account for free
                     </button>
-                  </span>
+                  </div>
+                </form>
+                <div className="text-center">
+                  <h4 className=" py-4"> Or register with:</h4>
+                  <button className="buttons me-3 my-2">Google</button>
+                  <button className="buttons my-2">facebook</button>
                 </div>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
-
     </>
   );
 };

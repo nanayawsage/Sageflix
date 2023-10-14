@@ -1,10 +1,8 @@
 import Hero from "./Hero";
-import Footer from "./Footer";
-// import FooterCopy from "./FooterCopy";
 
 const AboutView = () => {
   return (
-    <div className="container">
+    <div className="container dark-page">
       <Hero text="About Us" />
       
 
@@ -90,7 +88,6 @@ const AboutView = () => {
               </div>
             </div>
          
-      <Footer />
     </div>
   );
 };

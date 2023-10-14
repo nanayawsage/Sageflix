@@ -28,13 +28,11 @@ const Home = () => {
       }
     }
 
-
-
     fetchMovies();
   }, [id]);
 
   const renderMovies = () => (
-    <>
+    <div className="dark-page">
     <Hero text = "Trending Now" />
 
     <div className='container '>
@@ -46,13 +44,9 @@ const Home = () => {
        </div>
 
     </div>
-    </>
+    </div>
   );
-
-
-  return renderMovies(
-    
-  )
+  return renderMovies()
 
 
 };

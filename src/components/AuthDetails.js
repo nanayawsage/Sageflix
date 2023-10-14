@@ -1,6 +1,7 @@
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState} from "react";
-import {FaRegUser} from "react-icons/fa"
+import { useNavigate } from "react-router-dom";
+import {FaRegUser} from "react-icons/fa";
 
 
 const AuthDetails = () => {
@@ -8,6 +9,7 @@ const AuthDetails = () => {
 
   const [authUser, setAuthUser] = useState(null);
   const auth = getAuth();
+  const Navigate = useNavigate();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -26,6 +28,7 @@ const AuthDetails = () => {
   const UserSignOut = () => {
     signOut(auth)
       .then(() => {
+        Navigate ("/Login")
         console.log("sign Out successful");
       
       })
@@ -33,22 +36,22 @@ const AuthDetails = () => {
   };
 
   return (
-    <div className="container ">
+    <div className="">
       {authUser ? (
         <div>
-          <h4>
-            {`Signed In as: ${authUser.email}`}{" "}
+          <p>
+        
+            {/* {`Signed In as: ${authUser.email}`} */}
             <button
-              className="signOut-btn btn btn-success my-3"
+              className="signOut-btn"
               onClick={UserSignOut}
             >
               Sign Out
             </button>
-          </h4>
+          </p>
         </div>
       ) :  (
-        
-        <div className="">
+        <div className="user">
         <FaRegUser />
         </div>
         

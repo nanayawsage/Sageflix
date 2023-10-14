@@ -1,6 +1,4 @@
 
-
-
 import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -14,10 +12,7 @@ import Contact from "./components/Contact";
 import SideMenu from "./components/SideMenu";
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Homemovies from "./components/Homemovies";
-
-
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -57,9 +52,7 @@ function App() {
   }, [searchText]);
 
   return (
-
-   
-    <div>
+    <div className="dark-page">
       <SideMenu />
       <Navbar searchText={searchText} setSearchText={setSearchText} />
       <Routes>
@@ -76,12 +69,11 @@ function App() {
           path="/Search"
           element={
             <SearchView keyword={searchText} searchResults={searchResults} />
-          }
-          
+          }    
         />
         
       </Routes>
-<Footer />
+      <Footer />
     </div>
   );
 }

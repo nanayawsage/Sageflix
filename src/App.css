@@ -1,12 +1,13 @@
-*{
-  background-color: black;
-  color: white;
-  margin: 0;
+
+.dark-page{
+  background-color: #0a0a0a;
+  color: #ffffff;
+
 }
 
 .hero-container {
   position: relative;
-  z-index: 100;
+  /* z-index: 100; */
   border-radius: 10px;
 }
 
@@ -28,16 +29,19 @@
   opacity: 0.4;
 }
 
-footer {
+footer{
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
   color: white;
   text-align: center;
   font-style: italic;
-
+  display: flex;
+  justify-content: space-around;
 }
 
-
+footer > Link {
+  color: #ffffff;
+}
 
 
 
@@ -83,10 +87,16 @@ footer {
   text-align: center;
 }
 
-.footer-text {
-  color: rgb(255, 255, 255);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
+.submit-btn {
+  width: 20rem;
+}
+.buttons{
+  width: 10rem;
+  color: #ffffff;
+  background-color: rgb(52, 66, 255);
+  border: none;
+  padding: 8px;
+
 }
 
 .signin-btn {
@@ -105,16 +115,14 @@ footer {
 
 .signOut-btn {
   text-align: end;
+  width: 40px;
+  height: auto;
+  padding: 5px;
+  border: none;
+  font-size: 6px;
 }
 
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+
 
 
 .logo{
@@ -145,42 +153,90 @@ img {
 }
 
 .menu-container {
-  width: 6%;
+  width: 5rem;
   position: fixed;
-  background-color: rgb(14, 12, 12);
-  height: 600px;
+  background-color: rgb(20, 16, 16);
+  height: 80%;
   z-index: 3;
   flex-direction: column;
   align-items: center;
   margin-right: 40px;
-  margin-top: 30px;
+  margin-top: 4rem;
   margin-left: 10px;
+  color: white;
   border-radius: 10px;
   display: flex;
+  justify-content: space-between;
   }
 
 
   
-  .menu-icons {
-    display: flex;
-    text-align: center;
+  .menu-icon {
+    margin-top: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: larger;
   }
 
-  .user{
+  .home-icon {
     margin-top: 20px;
+    color: white;
     background-color: none;
+
+  }
+  .drop-menu > li:hover{
+    border: 2px solid black;
+    color: #ffffff;
+    background-color: #0a0a0a;
+  }
+
+
+.mb-menu{
+  display: none;
+}
+
+.user{
+    margin-bottom: 20px;
+    background-color: none;
+    color: white;
   }
   
 @media (max-width: 767.98px) {
-  .color-overlay {
-    min-height: 30vh;
+  .menu-container {
+    display: none;
   }
+  .search {
+    padding: 5px;
+    margin-left: 3px;
+    justify-content: center;
+    border: none;
+    width: 140px;
+  }
+
 .logo {
   max-width: 120px;
 }
 
+.mb-menu{
+  display: flex;
+  text-align: center;
+}
 
+.menu-icon {
+  margin-top: 0px;
+ 
+}
+.user{
+  margin-bottom: 3px;
+  margin-left: 5px;
+  background-color: none;
+  color: white;
 
+}
+
+.footer > p{
+  font-size: 6px;
+}
 }
 
 

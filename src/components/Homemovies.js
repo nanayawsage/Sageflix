@@ -37,7 +37,7 @@ const Homemovies = () => {
   }, [id]);
 
   const renderMovies = () => (
-    <>
+    <div className="dark-page">
 
     <div className='container '>
     <Hero text = "Trending Now" />
@@ -49,7 +49,7 @@ const Homemovies = () => {
        </div>
 
     </div>
-    </>
+    </div>
   );
 
 
