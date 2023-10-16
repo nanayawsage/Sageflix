@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
-import { MdCheckBox } from "react-icons/md";
+import {FcGoogle} from "react-icons/fc";
+import{BsFacebook} from "react-icons/bs";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        Swal.fire("Account created successfully!", "success");
+        Swal.fire("Account created successfully!");
         history("/Homemovies");
       })
       .catch((error) => {
@@ -55,9 +56,9 @@ const SignUp = () => {
                   </div>
                   <fieldset className="row mb-3"></fieldset>
                   {error && <p className="text-danger">{error}</p>}
-                  <div className="d-flex">
-                    <MdCheckBox />
-                    <p className="me-3">
+                  <div className="terms">
+                    <input type="checkbox"/>
+                    <p className="terms-text">
                       I accept terms and conditions on SageFlix
                     </p>
                   </div>
@@ -72,8 +73,9 @@ const SignUp = () => {
                 </form>
                 <div className="text-center">
                   <h4 className=" py-4"> Or register with:</h4>
-                  <button className="buttons me-3 my-2">Google</button>
-                  <button className="buttons my-2">facebook</button>
+
+                  <button className="buttons me-3 my-2"> <FcGoogle/>oogle</button>
+                  <button className="buttons me-3 my-2"> <BsFacebook/> facebook</button>
                 </div>
               </div>
             </div>

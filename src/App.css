@@ -92,9 +92,9 @@ footer > Link {
 }
 .buttons{
   width: 10rem;
-  color: #ffffff;
-  background-color: rgb(52, 66, 255);
-  border: none;
+  color: #000;
+  background-color: transparent;
+  border: 1px solid black;
   padding: 8px;
 
 }
@@ -115,11 +115,14 @@ footer > Link {
 
 .signOut-btn {
   text-align: end;
-  width: 40px;
-  height: auto;
-  padding: 5px;
+  width: 30px;
+  height: 20px;
+  padding: 2px;
   border: none;
   font-size: 6px;
+  margin-left: 5px;
+  background-color: coral;
+  color: #ffffff;
 }
 
 
@@ -201,6 +204,14 @@ img {
     color: white;
   }
   
+  .terms {
+    display: flex;
+    text-align: center;
+  }
+  .terms-text {
+    justify-content: center;
+    margin: 10px;
+  }
 @media (max-width: 767.98px) {
   .menu-container {
     display: none;
@@ -228,14 +239,14 @@ img {
 }
 .user{
   margin-bottom: 3px;
-  margin-left: 5px;
+  margin-left: 3px;
   background-color: none;
   color: white;
 
 }
 
 .footer > p{
-  font-size: 6px;
+  font-size: 12px;
 }
 }
 
