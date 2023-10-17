@@ -1,32 +1,55 @@
-import Hero from "./Hero";
-import backgroundImage from "./backgroundImage.jpg"
-import Cards from "./Cards";
-// import {Link } from "react-router-dom";
-import Footer from "./Footer";
- 
+import React, { useEffect, useState } from 'react';
+import MovieCard from './MovieCard';
+import { useParams } from "react-router-dom";
+import Hero from './Hero'; 
+
+
 const Home = () => {
-  return (
-    <main className=" container">
+  const { id } = useParams();
+  const [movies, setMovies] = useState([]);
+
+
+
+  useEffect(() => {
+    async function fetchMovies() {
+      try {
+        const response = await fetch(
+          'https://api.themoviedb.org/3/discover/movie?api_key=364477e37eaff7fbb22eaf9619ae7d93&append_to_response=videos'
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const { results } = await response.json(); // Destructure the 'results' array directly
+        // console.log(results)
+        setMovies(results); // Set 'movies' to the list of movies
       
-      <Hero text = "Welcome to SageFlix"/>
-      <header  style={{ backgroundImage: `url(${backgroundImage})` }}>
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    }
 
-        <div className="color-overlay ">
-            <h1 className="home-text  justify-content-center align-item-center">
-            Kindly sign In with a valid email and password to enjoy our world
-              of movies.
-            </h1>
-        
-           
-          </div>
-    
-      </header>
+    fetchMovies();
+  }, [id]);
 
-      <Cards />
+  const renderMovies = () => (
+    <div className="dark-page">
+    <Hero text = "Trending Now" />
 
-      <Footer />
-    </main>
+    <div className='container '>
+       <div className='row'>
+      
+      {movies.map((movie) => (
+        <MovieCard  key={movie.id} movie={movie} />
+      ))}
+       </div>
+
+    </div>
+    </div>
   );
+  return renderMovies()
+
+
 };
+
 
 export default Home;

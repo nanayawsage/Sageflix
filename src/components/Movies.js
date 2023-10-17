@@ -1,7 +1,6 @@
 import Hero from "./Hero";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Footer from "./Footer";
 // import FooterCopy from "./FooterCopy";
 
 // https://api.themoviedb.org/3/movie/343611?api_key=364477e37eaff7fbb22eaf9619ae7d93
@@ -30,9 +29,9 @@ const MovieView = () => {
       const posterPath = `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`;
       const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`;
       return (
-        <>
+        <div className="dark-page">
           <Hero text={movieDetails.original_title} backdrop={backdropUrl} />
-          <div className="container my-5">
+          <div className="container  my-5">
             <div className="row">
               <div className="col-md-3">
                 <img
@@ -49,10 +48,9 @@ const MovieView = () => {
 
               </div>
             </div>
-            <Footer />
           </div>
          
-        </>
+        </div>
       );
     }
   }
