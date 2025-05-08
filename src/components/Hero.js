@@ -1,6 +1,6 @@
 const Hero = ({ text, backdrop }) => {
   return (
-    <header className=" textColor container bg-dark my-1  p-3 hero-container">
+    <header className=" textColor container dark-page my-1  p-3 hero-container">
       <h1 className="hero-text">{text}</h1>
       {backdrop && (
         <div

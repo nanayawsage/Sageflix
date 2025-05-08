@@ -1,11 +1,12 @@
 
 
 import { useNavigate, Link } from "react-router-dom";
-import Footer from './Footer';
 
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-// import FooterCopy from "./FooterCopy";
+import Swal from 'sweetalert2/src/sweetalert2.js';
+
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,7 +19,10 @@ const Login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
+        Swal.fire(
+          'Logged In successfully!',
+          'success'
+        )
         history("/Homemovies");
         console.log(userCredential);
       })
@@ -29,53 +33,58 @@ const Login = () => {
 
   return (
     <>
-      <div className="constrain container col-md-4 my-5">
-        <h1 className="home-text">Sign In or Sign Up</h1>
-        <form onSubmit={signIn}>
-          <div className="row my-5">
-            <div className="col-sm-10">
-              <input
+      <div className="container">
+        <div className="row justify-content-center ">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-header text-center">
+                <h4>Sign In Or Register</h4>
+              </div>
+              <div className="card-body">
+                <form onSubmit={signIn}>
+                  <div className="form-group mb-3">
+                    <label>Email</label>
+                    <input
                 type="email"
-                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="form-control"
               />
-            </div>
-          </div>
-          <div className="row mb-3">
-            <div className="col-sm-10">
-              <input
-                placeholder="Password"
+                  </div>
+                  <div className="form-group mb-3">
+                    <label>Password</label>
+                    <input
                 type="password"
                 className="form-control"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </div>
-          </div>
-          <fieldset className="row mb-3"></fieldset>
-          {error && <p className="text-danger">{error}</p>} {/* Display error message */}
-          <div className="row mb-3">
-            <div className="col-sm-10 offset-sm-2">
-              <div className="form-check">
-                <div className="col-12">
-                  <button className="btn btn-primary" type="submit">
-                    Sign In
-                  </button>
-                  <span className="home-text col-12">
-                 
-                  <Link className="signup-text" to="/SignUp">Create Account</Link>
-              
-                  </span>
-                </div>
+                  </div>
+                  <fieldset className="row mb-3"></fieldset>
+                {error && <p className="text-danger">{error}</p>}     
+                  <div className="form-group mb-3 text-center">
+                    <button type="submit" className="btn btn-primary">
+                      Sign In
+                    </button>
+                    <span className="home-text col-12">
+                 <Link className="signup-text" to="/SignUp">Create Account</Link>
+             
+                 </span>
+                  </div>
+                </form>
+
+                <div className="text-center">
+                            <h4 className=" py-4"> Or sign in with:</h4>
+                            <button className="buttons me-3 my-2">Google</button>
+                            <button className="buttons my-2">facebook</button>
+
+                            </div>
+                    
               </div>
             </div>
           </div>
-        </form>
-    
+        </div>
       </div>
-      <Footer />
    
     </>
   );
